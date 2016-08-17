@@ -7,6 +7,10 @@
 .container {
   display: flex;
   overflow: hidden;
+  /*默认 pc 端，横向排列*/
+  flex-direction: row;
+  /*将 flex 设置为1，铺满整个屏幕*/
+  flex: 1;
 }
 .main {
   /*中间列宽度自适应*/
@@ -25,10 +29,9 @@
   order: -1;
 }
 
-/* 当在 pc 端展示时，将 flex 设置为1，铺满整个屏幕*/
-@media (min-width: 768px) {
+/* 当在移动端展示时，纵向排列*/
+@media (max-width: 768px) {
   .container {
-    flex-direction: row;
-    flex: 1;
+    flex-direction: column;
   }
 }
