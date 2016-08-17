@@ -1,0 +1,38 @@
+/*start*/
+
+.main {
+    width: 100%;
+    float: left;
+}
+.sub {
+    /*同时应用 float 浮动及 相对定位，会先浮动到相应位置，再根据 top/right/bottom/left 值偏移*/
+    width: 100px;
+    float: left;
+    /*margin-y: -n; 就向 y 方向移动 n */
+    margin-left: -100%;
+    position: relative;
+    left: -100px;
+}
+.extra {
+    width: 200px;
+    float: left;
+    margin-left: -200px;
+    position: relative;
+    right: -200px;
+}
+.container {
+    /*BFC，撑高高度。即使子元素全为 float 浮动，也可撑起高度*/
+    overflow: hidden;
+    padding: 0 200px 0 100px;
+}
+/*在小屏幕展示时会出现中间行长度不足以容纳三个 div 而撑开的情况，设置小屏时 extra 宽度小一些*/
+@media (max-width:400px) {
+    .extra {
+        width: 100px;
+        margin-left: -100px;
+        right: -100px;
+    }
+    .container {
+        padding: 0 100px;
+    }
+}
